@@ -1,0 +1,59 @@
+CLASSES
+-------
+
+
+class Program()
+{
+    Behavior
+    --
+    This class focuses on looping and Displaying a menu and through user interaction taking apporpriate action using our other classes.
+    If the Write option is chosen, then this class will call the Journal and PromptGenerator classes to finish the task.
+    If the Display option is chosen then this class will call the Journal class to finish the task.
+    If the Load or Save option is chosen then this class call the SaveLoad class to finish the task and if Load is chosen this class will feed the necessary data into Journal.
+    If the Quit option is chosen then this class will finish the program.
+
+    Attributes
+    --
+    Null
+}
+
+class Journal()
+{
+    Behavior
+    --
+    This class focuses on the Write and Display options from the menu.
+    If Write is chosen then this class will get the entry, prompt, and date and store them in a list.
+    If Display is chosen this class will use _entries to display all previous entries, their dates, and the prompts.
+
+    Attributes
+    --
+    _prompt = The prompt that was used.
+    _entry = The text entered after the prompt.
+    _date = The date the entry was made.
+    List<Journal> _entries = Will store the data for all previous entries, dates, and prompts.
+}
+
+class PromptGenerator()
+{
+    Behavior
+    --
+    This class focuses on generating a prompt for the user after they choose the Write option of the menu. When chosen this class will go through a source of prompts, whether that be online or another file or a simple list of them, and give back a random prompt.
+
+    Attributes
+    --
+    Null
+}
+
+class SaveLoad()
+{
+    Behavior
+    --
+    This class focuses on saving the journal file and loading previously saved journal files, after the user has chosen Save File or Load File from the menu.
+
+    Attributes
+    --
+    _saveFile = The name of the file to save.
+    _loadFile = The name of the file to load.
+}
+
+
