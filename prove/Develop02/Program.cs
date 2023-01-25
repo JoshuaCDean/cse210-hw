@@ -1,5 +1,6 @@
 using System;
-
+// My exceeding requirements is an option to add a character limit to the entries you write, so you have to write a certain amount.
+// Had a lot of help understanding how to do some of the things I wanted to do with www.google.com, https://www.c-sharpcorner.com/article/c-sharp-list/, and https://stackoverflow.com/questions/24443827/reading-an-integer-from-user-input
 class Program
 {
     static void Main(string[] args)
@@ -36,6 +37,7 @@ class Program
 
             } else if (userInput == "3")
             {
+                //My exceeding Requirements had to add a TryParse check because i do not want an accidental slip up from the user to break the program! Thank you google for teaching me that!
                 bool checkIsParsable = true;
                 do
                 {
