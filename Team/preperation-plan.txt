@@ -55,5 +55,3 @@ class SaveLoad()
     _saveFile = The name of the file to save.
     _loadFile = The name of the file to load.
 }
-
-
