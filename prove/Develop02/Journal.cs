@@ -6,14 +6,6 @@ public class Journal
 
     public List<string> _entries = new List<string>();
         
-
-    public void AddEntry()
-    {
-        string complete_entry = _prompt + "|||" + _entry + "|||" + _date;
-        _entries.Add(complete_entry);
-    }
-
-
     public void Display()
     {
         foreach (string line in _entries) {

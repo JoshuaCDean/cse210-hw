@@ -18,6 +18,7 @@ class Program
                 string prompt = prompts.GivePrompt();
                 Console.WriteLine(prompt);
                 string entry = Console.ReadLine();
+                Entry enter = new Entry();
                 while (entry.Length < character_limit)
                 {
                     int missing_chars = character_limit - entry.Length;
@@ -27,10 +28,11 @@ class Program
                 }
                 DateTime theCurrentTime = DateTime.Now;
                 string date = theCurrentTime.ToShortDateString();
-                journal._date = date;
-                journal._prompt = prompt;
-                journal._entry = entry;
-                journal.AddEntry();
+                enter._journal = journal;
+                enter._date = date;
+                enter._prompt = prompt;
+                enter._entry = entry;
+                enter.AddEntry();
             } else if (userInput == "2")
             {
                 journal.Display();
