@@ -1,0 +1,109 @@
+class Program
+{
+    Behavior 
+    ----------
+    It prompts to hit enter or quit and then accesses the other classes for the corresponding choice.
+}
+
+class Scripture 
+{
+    Behavior
+    ----------
+    Stores and gives the scripture and reference
+
+    Attributes
+    -----------
+    private _reference;
+    private _scripture;
+    
+    Constructors
+    ------------
+    public string GiveScripture(Null)
+    {
+        Behavior
+        --------
+        returns a string with _reference + _scripture
+
+        Attributes
+        ----------
+        NUll
+
+        Constructors
+        -----------
+        class Main {
+            Holds the menu and decides whether to enter or to quit
+            WIll track quit itself, and will call AllWordsHidden from the Word class to check if all the words have beein hidden.
+        }
+    }
+}
+
+class Word
+{
+    Behavior
+    --------
+    Keeps track of hidden words and hides words if called. Also tells if all the words are hidden
+
+    Attributes
+    ----------
+    private List words = a list of hidden words
+
+
+    Constructors
+    ------------
+    public void HideWord(Null)
+    {
+        Behavior
+        --------
+        Hides a word when called
+    }
+
+    public string List SetHiddenWords(Null)
+    {
+        Behavior
+        --------
+        returns The hidden words
+    }
+
+    public bool AllWordsHidden(null)
+    {
+        Behavior
+        --------
+        will check if all the words are hidden, if they are returns true if they aren't returns false
+    }
+}
+
+class Display
+{
+    Behavior
+    --------
+    Gets the hidden words and the scripture&reference and displays them with the hidden words removed
+
+    Attributes
+    ----------
+    private _scripture;
+    private List hidden_words;
+    private _display_message;
+
+    Constructors
+    ------------
+    public void GetHiddenWords(hidden_words)
+    {
+        Behavior
+        -------
+        Will get the list of hidden words
+    }
+
+    public void GetScripture(scripture)
+    {
+        Behavior
+        --------
+        Will get the scripture and reference
+    }
+    
+    public void Display()
+    {
+        Behavior
+        --------
+        Displays _display_message
+    }
+}
