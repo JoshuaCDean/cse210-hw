@@ -32,7 +32,7 @@ class Program
                 enter._date = date;
                 enter._prompt = prompt;
                 enter._entry = entry;
-                enter.AddEntry();
+                journal._entries.Add(enter); 
             } else if (userInput == "2")
             {
                 journal.Display();

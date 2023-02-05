@@ -12,7 +12,12 @@ public class SaveLoad
         string[] lines = System.IO.File.ReadAllLines(_loadFile);
         foreach (string line in lines)
         {
-            _journal._entries.Add(line);
+            Entry enter = new Entry();
+            string[] parts = line.Split("|||");
+            enter._prompt = parts[0];
+            enter._entry = parts[1];
+            enter._date = parts[2];
+            _journal._entries.Add(enter);
         }
     }
 
@@ -20,9 +25,9 @@ public class SaveLoad
     {
         using (StreamWriter outputFile = new StreamWriter(_saveFile))
         {
-            foreach (string line in _journal._entries)
+            foreach (Entry line in _journal._entries)
             {
-                outputFile.WriteLine(line);
+                line.SaveToFile(_saveFile, outputFile);
             }
         }
     }
