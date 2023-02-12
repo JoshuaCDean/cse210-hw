@@ -24,9 +24,14 @@ class Program
             Console.WriteLine("Press enter to continue or type 'quit' to continue");
             string input = Console.ReadLine().ToLower();
             bool allHidden = wordCheck.AllWordsHidden();
-            if (input == "quit" || allHidden) {
+            if (input == "quit") {
                 quit = true;
             };
+            // EXCEEDING REQUIREMENTS chance to guess the prompt after it is all hidden
+            if (allHidden) {
+                quit = displayCheck.DisplayFinale();
+            }
+            //Hide Words for next Cycle
             scripture = wordCheck.HideWord();
         } while (!quit);
     }
