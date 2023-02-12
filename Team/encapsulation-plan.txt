@@ -3,6 +3,11 @@ class Program
     Behavior 
     ----------
     It prompts to hit enter or quit and then accesses the other classes for the corresponding choice.
+    
+    class Main {
+        Holds the menu and decides whether to enter or to quit
+        WIll track quit itself, and will call AllWordsHidden from the Word class to check if all the words have beein hidden.
+    }
 }
 
 class Scripture 
@@ -23,17 +28,6 @@ class Scripture
         Behavior
         --------
         returns a string with _reference + _scripture
-
-        Attributes
-        ----------
-        NUll
-
-        Constructors
-        -----------
-        class Main {
-            Holds the menu and decides whether to enter or to quit
-            WIll track quit itself, and will call AllWordsHidden from the Word class to check if all the words have beein hidden.
-        }
     }
 }
 
@@ -100,7 +94,7 @@ class Display
         Will get the scripture and reference
     }
     
-    public void Display()
+    public void DisplayScripture()
     {
         Behavior
         --------
