@@ -27,11 +27,11 @@ class Program
             if (input == "quit") {
                 quit = true;
             };
-            // EXCEEDING REQUIREMENTS chance to guess the prompt after it is all hidden
+            // EXCEEDING REQUIREMENTS chance to guess the prompt after it is all hidden.
             if (allHidden) {
                 quit = displayCheck.DisplayFinale();
             }
-            //Hide Words for next Cycle
+            //Hide Words for next Cycle. EXCEEDING REQUIREMENTS: Won't overlap hidden words. (Hides unique words that haven't been hidden yet)
             scripture = wordCheck.HideWord();
         } while (!quit);
     }
