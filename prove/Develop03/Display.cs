@@ -14,6 +14,7 @@ class Display
 
     public void DisplayScripture()
     {
+        Console.Clear();
         _display_message = $"{_reference} - {_scripture}";
         Console.WriteLine(_display_message);
     }
