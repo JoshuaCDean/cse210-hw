@@ -1,0 +1,104 @@
+class Program
+{
+    Behavior
+    --
+    Hold the menu to choose from the three Activities or to quit
+
+}
+
+
+super class Activity
+{
+    Attributes
+    --
+    _activityName: string;
+    _duration: int;
+    _description: string;
+
+    Behavior
+    -------
+    Displaying a starting message
+    Displaying an ending message
+    Pausing with a spinner 
+    Pausing with a Countdown
+
+
+
+    Constructors
+    ----
+    Activity(name, duration, description)
+    {
+        Behavior
+        --
+        sets our attributes for this class
+    }
+}
+
+
+class BreathingActivity : Activity
+{
+    Attributes
+    --
+
+
+    Behavior
+    --
+    Display instructions to Breathe in and out
+
+    Constructors
+    --
+    BreathingActivity(name, duration, description) : base(name,duration,description)
+    {
+        Behavior
+        --
+        Sets the attributes for this class
+    }
+}
+
+
+class ReflectingActivity : Activity
+{
+    Attributes
+    --
+    _prompts = List<string>
+    _questions = List<string>
+
+
+    Behavior
+    --
+    Get random prompt
+    Display random prompt
+    Get random question
+    Display random question
+
+    Constructors
+    --
+    ReflectingActivity(name, duration, description) : base(name,duration,description)
+    {
+        Behavior
+        --
+        Sets the attributes for this class
+    }
+}
+
+class ListingActivity : Activity
+{
+    Attributes
+    --
+
+    Behavior
+    --
+    Get random prompt
+    Display random prompt
+    Get number of listed items
+    Display number of Listed Items
+
+    Constructors
+    --
+    ListingActivity(name, duration, description) : base(name,duration,description)
+    {
+        Behavior
+        --
+        Sets the attributes for this class
+    }
+}
