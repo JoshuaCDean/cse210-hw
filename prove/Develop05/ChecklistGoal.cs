@@ -8,6 +8,14 @@ class ChecklistGoal : Goal
         _completeAmount = checkAmount;
         _bonusPoints = bonus;
     }
+
+    public ChecklistGoal(double points, string name, string description, int checkAmount, double bonus, int amount) : base(points, name, description)
+    {
+        _completeAmount = checkAmount;
+        _bonusPoints = bonus;
+        _completion = amount;
+
+    }
     public override double CompleteGoal()
     {
         if (_completion == _completeAmount)
@@ -39,6 +47,12 @@ class ChecklistGoal : Goal
         {
             completed = "[X]";
         }
-        Console.WriteLine($"{pos}. {completed} {GetName} ({GetDescription}) -- Currently completed: {_completion}/{_completeAmount}");
+        Console.WriteLine($"{pos}. {completed} {GetName()} ({GetDescription()}) -- Currently completed: {_completion}/{_completeAmount}");
+    }
+
+    public override string GoalConvert()
+    {
+        string entry = $"ChecklistGoal|||{GetName()}|||{GetDescription()}|||{GetPoints()}|||{_bonusPoints}|||{_completeAmount}|||{_completion}";
+        return entry;
     }
 }

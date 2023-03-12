@@ -12,6 +12,12 @@ class EternalGoal : Goal
 
     override public void DisplayGoal(int pos)
     {
-        Console.WriteLine($"{pos}. [ ] {GetName} ({GetDescription})");
+        Console.WriteLine($"{pos}. [ ] {GetName()} ({GetDescription()})");
+    }
+
+    public override string GoalConvert()
+    {
+        string entry = $"EternalGoal|||{GetName()}|||{GetDescription()}|||{GetPoints()}";
+        return entry;
     }
 }

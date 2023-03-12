@@ -10,15 +10,15 @@ class Program
         do
         {
 
-            Console.WriteLine("Menu Options:\n  1. Create New Goal\n  2. List Goals\n  3. Save Goals\n  4. Load Goals\n  5. Record Event\n  6. Quit\nSelect a choice from the menu: ");
+            Console.WriteLine($"\nYou have {points} points.\n\nMenu Options:\n  1. Create New Goal\n  2. List Goals\n  3. Save Goals\n  4. Load Goals\n  5. Record Event\n  6. Quit\nSelect a choice from the menu: ");
             string userInput = Console.ReadLine();
             if (userInput == "1")
             {
-                Console.WriteLine("The types of Goals are:\n  1. Simple Goal\n  2. Eternal Goal\n  3.Checklist Goal\nWhich type of goal would you like to create?: ");
+                Console.WriteLine("\nThe types of Goals are:\n  1. Simple Goal\n  2. Eternal Goal\n  3. Checklist Goal\nWhich type of goal would you like to create?: ");
                 string goalChoice = Console.ReadLine();
                 if (goalChoice == "1")
                 {
-                    Console.WriteLine("What is the name of your goal?: ");
+                    Console.WriteLine("\nWhat is the name of your goal?: ");
                     string myGoal = Console.ReadLine();
                     Console.WriteLine("What is a short description of your goal?:");
                     string myDesc = Console.ReadLine();
@@ -52,30 +52,39 @@ class Program
                     goals.Add(newGoal);
                 } else
                 {
-                    Console.WriteLine("Sorry you entered an incorrect option. Please Try Again.");
+                    Console.WriteLine("\nSorry you entered an incorrect option. Please Try Again.");
                 }
             } else if (userInput == "2")
             { 
                 int pos = 0;
+                Console.WriteLine("\nThe goals are:");
                 foreach (Goal myGoal in goals)
                 {
                     pos++;
-                    Console.WriteLine("The goals are:");
                     myGoal.DisplayGoal(pos);
                 }
             } else if (userInput == "3")
             { 
-                
+                SaveLoad saving = new SaveLoad();
+                Console.WriteLine("What is the filename for the goal file? ");
+                string saveFile = Console.ReadLine();
+
+                saving.Save(saveFile, goals, points);
             } else if (userInput == "4")
-            { 
- 
+            {
+                SaveLoad loading = new SaveLoad();
+                Console.WriteLine("What is the filename for the goal file? ");
+                string loadFile = Console.ReadLine();
+
+                goals = loading.Load(loadFile);
             } else if (userInput == "5")
             {
                 int pos = 0;
+                
+                Console.WriteLine("\nThe goals are:");
                 foreach (Goal myGoal in goals)
                 {
                     pos++;
-                    Console.WriteLine("The goals are:");
                     myGoal.DisplayGoal(pos);
                 }
                 Console.WriteLine("Which goal did you accomplish?");
@@ -83,6 +92,7 @@ class Program
                 if (index-1 <= goals.Count)
                 {
                     points += goals[index-1].CompleteGoal();
+                    Console.WriteLine($"You now have {points} points.");
                 } else
                 {
                     Console.WriteLine("That isn't a current Goal, please try again.");
@@ -92,7 +102,7 @@ class Program
                 quit = true;
             } else
             {
-                Console.WriteLine("Sorry, you entered an incorrect option. Please Try Again.");
+                Console.WriteLine("\nSorry, you entered an incorrect option. Please Try Again.");
             }
         } while(!quit);
     }

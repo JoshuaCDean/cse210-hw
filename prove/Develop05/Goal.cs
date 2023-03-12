@@ -9,6 +9,7 @@ abstract class Goal {
     {
         _points = points;
         _name = name;
+        _description = description;
     }
 
     public string GetName()
@@ -30,4 +31,6 @@ abstract class Goal {
     abstract public double CompleteGoal();
 
     abstract public void DisplayGoal(int pos);
+
+    abstract public string GoalConvert();
 }

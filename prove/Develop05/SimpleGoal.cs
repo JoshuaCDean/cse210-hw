@@ -4,6 +4,11 @@ class SimpleGoal: Goal
 
     public SimpleGoal(double points, string name, string description) : base(points, name, description){}
 
+    public SimpleGoal(double points, string name, string description, bool complete) : base(points, name, description)
+    {
+        _completed = complete;
+    }
+
     override public double CompleteGoal()
     {
         if (!_completed)
@@ -25,6 +30,12 @@ class SimpleGoal: Goal
         {
             completed = "[X]";
         }
-        Console.WriteLine($"{pos}. {completed} {GetName} ({GetDescription})");
+        Console.WriteLine($"{pos}. {completed} {GetName()} ({GetDescription()})");
+    }
+
+    public override string GoalConvert()
+    {
+        string entry = $"SimpleGoal|||{GetName()}|||{GetDescription()}|||{GetPoints()}|||{_completed}";
+        return entry;
     }
 }
