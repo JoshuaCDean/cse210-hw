@@ -21,20 +21,26 @@ class SaveLoad
         {
             string[] parts = line.Split("|||");
             string goalType = parts[0];
-            string name = parts[1];
-            string description = parts[2];
-            int points = Convert.ToInt32(parts[3]);
             if (goalType == "SimpleGoal")
             {
+                string name = parts[1];
+                string description = parts[2];
+                int points = Convert.ToInt32(parts[3]);
                 bool complete = Convert.ToBoolean(parts[4]);
                 Goal goal = new SimpleGoal(points, name, description, complete);
                 goals.Add(goal);
             } else if (goalType == "EternalGoal")
             {
+                string name = parts[1];
+                string description = parts[2];
+                int points = Convert.ToInt32(parts[3]);
                 Goal goal = new EternalGoal(points, name, description);
                 goals.Add(goal);
             } else if (goalType == "ChecklistGoal")
             {
+                string name = parts[1];
+                string description = parts[2];
+                int points = Convert.ToInt32(parts[3]);
                 int bonusPoints = Convert.ToInt32(parts[4]);
                 int completeAmount = Convert.ToInt32(parts[5]);
                 int completion = Convert.ToInt32(parts[6]);
@@ -44,5 +50,12 @@ class SaveLoad
 
         }
         return goals;
+    }
+
+    public int LoadPoints(string loadFile)
+    {
+        string[] lines = System.IO.File.ReadAllLines(loadFile);
+        int points = Convert.ToInt32(lines[0]);
+        return points;
     }
 }

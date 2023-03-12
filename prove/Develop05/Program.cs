@@ -68,7 +68,6 @@ class Program
                 SaveLoad saving = new SaveLoad();
                 Console.WriteLine("What is the filename for the goal file? ");
                 string saveFile = Console.ReadLine();
-
                 saving.Save(saveFile, goals, points);
             } else if (userInput == "4")
             {
@@ -77,6 +76,7 @@ class Program
                 string loadFile = Console.ReadLine();
 
                 goals = loading.Load(loadFile);
+                points = loading.LoadPoints(loadFile);
             } else if (userInput == "5")
             {
                 int pos = 0;
