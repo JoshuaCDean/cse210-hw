@@ -1,15 +1,12 @@
 class EternalGoal : Goal
 {
 
-    public EternalGoal(double points) : base(points)
-    {
+    public EternalGoal(double points, string name) : base(points, name){}
 
-    }
-    public override void CreateNewGoal()
-    {
-    }
 
-    public override void CompleteGoal()
+    public override void CompleteGoal(){}
+
+    public override void DisplayGoal(int pos)
     {
     }
 }

@@ -2,17 +2,12 @@ class SimpleGoal: Goal
 {
     bool _completed = false;
 
-    public SimpleGoal(double points) : base(points)
-    {
-
-    }
+    public SimpleGoal(double points, string name) : base(points, name){}
 
 
-    public override void CreateNewGoal()
-    {
-    }
 
     override public void CompleteGoal()
     {
+        _completed = true;
     }
 }
