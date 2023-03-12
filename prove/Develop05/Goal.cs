@@ -1,4 +1,4 @@
-class Goal {
+abstract class Goal {
     double _points;
 
 
@@ -7,10 +7,12 @@ class Goal {
         _points = points;
     }
 
-    public Goal()
+    abstract public void CreateNewGoal();
+
+    abstract public void CompleteGoal();
+
+    public void DisplayGoal()
     {
-        
+
     }
-
-
 }
