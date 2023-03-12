@@ -10,7 +10,7 @@ class Program
         do
         {
 
-            Console.WriteLine($"\nYou have {points} points.\n\nMenu Options:\n  1. Create New Goal\n  2. List Goals\n  3. Save Goals\n  4. Load Goals\n  5. Record Event\n  6. Quit\nSelect a choice from the menu: ");
+            Console.WriteLine($"\nYou have {points} points.\n\nMenu Options:\n  1. Create New Goal\n  2. List Goals\n  3. Save Goals\n  4. Load Goals\n  5. Record Event\n  6. Points Shop\n  7. Quit\nSelect a choice from the menu: ");
             string userInput = Console.ReadLine();
             if (userInput == "1")
             {
@@ -87,7 +87,7 @@ class Program
                     pos++;
                     myGoal.DisplayGoal(pos);
                 }
-                Console.WriteLine("Which goal did you accomplish?");
+                Console.WriteLine("\nWhich goal did you accomplish?");
                 int index = Convert.ToInt32(Console.ReadLine());
                 if (index-1 <= goals.Count)
                 {
@@ -98,6 +98,52 @@ class Program
                     Console.WriteLine("That isn't a current Goal, please try again.");
                 }
             } else if (userInput == "6")
+            {
+                //ADDED points shop for Exceeding Requirements
+                Console.WriteLine($"\nWelcome to the points shop, here you can spend your points:\n  1. See a Random Scripture Verse: Price 300 points\n  2. Number Guessing Game: Price 500 points\n  3. Play Tic Tac Toe: Price 1000 points\nPlease choose an option. You have {points} points remaining: ");
+                string userChoice = Console.ReadLine();
+                if (userChoice=="1")
+                {
+                    if (points < 300)
+                    {
+                        Console.WriteLine("Sorry! But you don't have enough points for this item!");
+                    } else
+                    {
+                        points -=300;
+                        Console.WriteLine($"\nYour points are now {points}. Thank you for your purchase! Here is your scripture:\n");
+                        new RandomScriptureVerse();
+                        Console.ReadLine();
+                    }
+                } else if (userChoice=="2")
+                {
+                    if (points < 500)
+                    {
+                        Console.WriteLine("Sorry! But you don't have enough points for this item!");
+                    } else
+                    {
+                        points -=500;
+                        Console.WriteLine($"\nYour points are now {points}. Thank you for your purchase! Press enter when you would like to start:\n");
+                        Console.ReadLine();
+                        new NumberGame();
+                    }
+                } else if (userChoice=="3")
+                {
+                    if (points < 1000)
+                    {
+                        Console.WriteLine("Sorry! But you don't have enough points for this item!");
+                    } else
+                    {
+                        points -=1000;
+                        Console.WriteLine($"\nYour points are now {points}. Thank you for your purchase! Press enter when you would like to start:\n");
+                        Console.ReadLine();
+                        new TicTacToe();
+                    }
+                } else
+                {
+                    Console.WriteLine("Sorry! That answer was not a choice, please try again!");
+                }
+
+            } else if (userInput == "7")
             {
                 quit = true;
             } else
