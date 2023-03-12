@@ -1,5 +1,3 @@
-using System.IO; 
-
 public class SaveLoad
 {
     public string _saveFile;

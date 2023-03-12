@@ -6,6 +6,7 @@ class Program
     {
         bool quit = false;
         List<Goal> goals = new List<Goal>();
+        double points = 0;
         do
         {
 
@@ -19,25 +20,35 @@ class Program
                 {
                     Console.WriteLine("What is the name of your goal?: ");
                     string myGoal = Console.ReadLine();
-                    Console.WriteLine("What is the amount of points for this goal?");
+                    Console.WriteLine("What is a short description of your goal?:");
+                    string myDesc = Console.ReadLine();
+                    Console.WriteLine("What is the amount of points for this goal?:");
                     double myPoints = Convert.ToInt32(Console.ReadLine());
-                    SimpleGoal newGoal = new SimpleGoal(myPoints, myGoal);
+                    SimpleGoal newGoal = new SimpleGoal(myPoints, myGoal, myDesc);
                     goals.Add(newGoal);
                 } else if (goalChoice == "2")
                 {
                     Console.WriteLine("What is the name of your goal?: ");
                     string myGoal = Console.ReadLine();
-                    Console.WriteLine("What is the amount of points for this goal?");
+                    Console.WriteLine("What is a short description of your goal?:");
+                    string myDesc = Console.ReadLine();
+                    Console.WriteLine("What is the amount of points for this goal?:");
                     double myPoints = Convert.ToInt32(Console.ReadLine());
-                    EternalGoal newGoal = new EternalGoal(myPoints, myGoal);
+                    EternalGoal newGoal = new EternalGoal(myPoints, myGoal, myDesc);
                     goals.Add(newGoal);
                 } else if (goalChoice == "3")
                 {
                     Console.WriteLine("What is the name of your goal?: ");
                     string myGoal = Console.ReadLine();
-                    Console.WriteLine("What is the amount of points for this goal?");
+                    Console.WriteLine("What is a short description of your goal?:");
+                    string myDesc = Console.ReadLine();
+                    Console.WriteLine("What is the amount of points for this goal?:");
                     double myPoints = Convert.ToInt32(Console.ReadLine());
-                    ChecklistGoal newGoal = new ChecklistGoal(myPoints, myGoal);
+                    Console.WriteLine("How many times does this goal need to be accomplished for a bonus?");
+                    int checkAmount = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("What is the bonus for accomplishing it that many times?");
+                    double bonus = Convert.ToInt32(Console.ReadLine());
+                    ChecklistGoal newGoal = new ChecklistGoal(myPoints, myGoal, myDesc, checkAmount, bonus);
                     goals.Add(newGoal);
                 } else
                 {
@@ -49,20 +60,36 @@ class Program
                 foreach (Goal myGoal in goals)
                 {
                     pos++;
+                    Console.WriteLine("The goals are:");
                     myGoal.DisplayGoal(pos);
                 }
             } else if (userInput == "3")
             { 
- 
+                
             } else if (userInput == "4")
             { 
  
             } else if (userInput == "5")
-            { 
- 
+            {
+                int pos = 0;
+                foreach (Goal myGoal in goals)
+                {
+                    pos++;
+                    Console.WriteLine("The goals are:");
+                    myGoal.DisplayGoal(pos);
+                }
+                Console.WriteLine("Which goal did you accomplish?");
+                int index = Convert.ToInt32(Console.ReadLine());
+                if (index-1 <= goals.Count)
+                {
+                    points += goals[index-1].CompleteGoal();
+                } else
+                {
+                    Console.WriteLine("That isn't a current Goal, please try again.");
+                }
             } else if (userInput == "6")
             {
-
+                quit = true;
             } else
             {
                 Console.WriteLine("Sorry, you entered an incorrect option. Please Try Again.");

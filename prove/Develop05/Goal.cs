@@ -1,19 +1,33 @@
 abstract class Goal {
 
-    string _name;
-    double _points;
+    private string _name;
+    private double _points;
+    private string _description;
 
 
-    public Goal(double points, string name)
+    public Goal(double points, string name, string description)
     {
         _points = points;
         _name = name;
     }
 
-    abstract public void CompleteGoal();
-
-    virtual public void DisplayGoal(int pos)
+    public string GetName()
     {
-        Console.WriteLine($"{pos}. [ ] {_name}");
+        return _name;
     }
+
+    public double GetPoints()
+    {
+        return _points;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+
+    abstract public double CompleteGoal();
+
+    abstract public void DisplayGoal(int pos);
 }
