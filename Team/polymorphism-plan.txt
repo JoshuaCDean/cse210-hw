@@ -1,0 +1,136 @@
+class Program
+{
+    Behavior
+    ----
+    Holds the menu for the program
+}
+
+super class Goal
+{
+    Behavior
+    -------
+    A parent class for all the possible goals so we can use incapsulation
+
+    Constructor
+    -----
+    public Goal(points)
+    {
+        _points = points
+        Sets points
+    }
+
+
+    Attributes
+    -------
+    _points: double;
+
+    
+    Methods
+    ----
+    abstract/virtual  public CreateNewGoal()
+    {
+        can be called in children classes to create specified goal.
+    }
+
+    virtual public CompleteGoal()
+    {
+        Can be called from children class to increase or complete the goal
+    }
+
+    public DisplayGoal()
+    {
+        Displays the goal
+    }
+}
+
+class SimpleGoal : Goal
+{
+    Behavior
+    -------
+    Creates a simple goal
+
+    Constructor
+    -----
+    public SimpleGoal(points) : base(points)
+    {
+        (Sets points)
+        _completed=false
+
+    }
+
+    public SimpleGoal(points, completed) : base(points)
+    {
+        (Sets points and completion)
+        _completed=completed
+    }
+
+    Attributes
+    --------
+    _completed: bool;
+
+    Methods
+    ----
+    override  public CreateNewGoal()
+
+    override public CompleteGoal()
+    {
+        sets _completed to true
+    }
+}
+
+
+class EternalGoal : Goal
+{
+    Behavior
+    -------
+    Creates an eternal goal
+
+    Constructor
+    -----
+    public EternalGoal(points) : base(points)
+    {
+        (Sets points)
+    }
+
+    Methods
+    ----
+    override  public CreateNewGoal()
+    override public CompleteGoal()
+    {
+        does nothing in this class
+    }
+}
+
+class ChecklistGoal : Goal
+{
+    Behavior
+    -------
+    Creates a checklist goal
+     
+    Constructor
+    -----
+    public ChecklistGoal(points) : base(points)
+    {
+        (Sets points)
+    }
+
+    Attributes
+    --------
+    _completionGoal: int;
+    _completions: int;
+
+    Methods
+    ----
+    override  public CreateNewGoal()
+    override public CompleteGoal()
+    {
+        increments completions by 1 and checks if completions is equal to completion goal.
+    }
+}
+
+class SaveLoad
+{
+    Behavior
+    -------
+    Called to save and load goals from file
+}
