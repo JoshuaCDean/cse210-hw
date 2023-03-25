@@ -1,0 +1,86 @@
+RECIPE MANAGER
+----
+
+class Program
+{
+    Behavior
+    --
+    Holds the menu for the program
+}
+
+class RecipeBook
+{
+    Behavior
+    ---
+    Holds all your recipes
+}
+
+
+class Recipe(Super)
+{
+    Attributes
+    --
+    _ingredients = List(Ingredients)
+    _description = string;
+    _name = string;
+    
+
+    Methods
+    ---
+    EditRecipe()
+    {
+        Can change the description, ingredients
+    }
+
+    virtual/abstract GetType()
+    {
+        Returns the type of dish it is for the Search
+    }
+}
+
+class Desert : Recipe
+{
+    Methods 
+    --
+    override GetType()
+    {
+        returns Desert
+    }
+}
+
+class MainDish : Recipe
+{
+    Methods 
+    --
+    override GetType()
+    {
+        returns MainDish
+    }
+}
+
+class Appetizer : Recipe
+{
+    override GetType()
+    {
+        returns Appetizer
+    }
+}
+
+
+class Ingredients
+{
+    Methods
+    --
+    GetIngredients(List ingredients)
+    {
+        returns the ingredients from the list
+    }
+}
+
+
+class SaveLoad
+{
+    Behavior
+    --
+    Saves and Loads your recipebook to a file
+}
