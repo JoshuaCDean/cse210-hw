@@ -1,7 +1,12 @@
 class Appetizer : Recipe
 {
 
-    public Appetizer(string name, string recipe) : base(name, recipe)
+    public Appetizer(string name, string description) : base(name, description)
+    {
+        
+    }
+
+    public Appetizer(string name, string description, List<Ingredients> ingredients, List<string> instructions) : base(name, description, ingredients, instructions)
     {
         
     }
